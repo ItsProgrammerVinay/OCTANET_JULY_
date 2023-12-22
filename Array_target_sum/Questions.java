@@ -1,13 +1,52 @@
 class Questions{
     public static void main(String[] args) {
-        
-        int arr[]={1,4,2,3,4,5,2};
+
+        int arr[] = { 1, 4, 2, 3, 4, 5, 2 };
 
         // System.out.println("Max Element in arr is:"+maxElement(arr));
         // System.out.println("Second Element in arr is:"+secMaxElement(arr));
         // System.out.println("MIN Element in arr is:"+minElement(arr));
         // System.out.println("Sec Min Element in arr is:"+secMinElement(arr));
-        System.out.println("first Reapeating Number is :"+firstReapeatingNumber(arr));
+        // System.out.println("first Reapeating Number is :" + firstReapeatingNumber(arr));
+        rotateArray(arr, 1);
+       printArray(arr);
+        
+    }
+
+    public static void swapArray(int arr[],int i,int j) {
+       
+        int temp=arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+     
+    }
+
+    public static void printArray(int arr[]) {
+        int n = arr.length;
+        for (int i = 0; i < n; i++) {
+            System.out.print(arr[i]+" ");
+
+        }
+    }
+    public static void reverse(int arr[],int i,int j) {
+       
+        while (i <j) {
+            swapArray(arr, i, j);
+            i++;
+            j--;
+        }
+       
+    }
+    public static void rotateArray(int arr[],int k){
+        int n = arr.length;
+        k = k % n;
+         
+        reverse(arr, 0, n - k - 1);
+        reverse(arr, n - k, n - 1);
+        reverse(arr, 0, n-1);
+        
+
+
     }
 
     public static int firstReapeatingNumber(int arr[]){
