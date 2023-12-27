@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-class ClassRoom{
+class ClassRoom {
     public static void main(String[] args) {
         int arr[] = { 10, 2, 3, 4, 5, 2 };
         int target = 11;
@@ -20,11 +20,32 @@ class ClassRoom{
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter Your Number :");
         int num = sc.nextInt();
-        printIncreasing(num);
+        // printIncreasing(num);
+        printTable(num);
 
     }
 
-    
+    //|||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+    // public static void printTable(int n) {
+
+    //     if (n == 2) {
+    //         System.out.print(2 + " ");
+    //         return;
+    //     }
+    //      System.out.print(2*n+" ");
+    //     printTable(2*(n-1));
+
+    // }
+    public static void printTable(int n) {
+        if (n == 1) {
+            System.out.print(2 + " ");
+            return;
+        }
+        
+        printTable(n - 1);  // Corrected recursive call
+        System.out.print(2 * n + " ");
+    }
     //||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
     public static void printIncreasing(int n) {
@@ -47,6 +68,7 @@ class ClassRoom{
         printIncreasing(n - 1);
 
     }
+
     //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
     public static void arrayList() {
         List<Integer> li = new ArrayList<>();
@@ -60,7 +82,6 @@ class ClassRoom{
 
     //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
-
     public static int occurenceOfElement(int arr[], int x) {
         int count = 0;
         int n = arr.length;
@@ -71,7 +92,7 @@ class ClassRoom{
         }
         return count;
     }
-    
+
     //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
     public static int lastOccurenceOfElement(int arr[], int x) {
@@ -84,7 +105,7 @@ class ClassRoom{
         }
         return count;
     }
-    
+
     //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
     public static boolean stricklyGreater(int arr[], int x) {
@@ -99,7 +120,7 @@ class ClassRoom{
         }
         return isgreater;
     }
-    
+
     //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
     public static boolean isSortes(int arr[]) {
@@ -114,7 +135,7 @@ class ClassRoom{
         }
         return check;
     }
-    
+
     //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
     public static int[] smallesrAndLargetSum(int arr[]) {
@@ -123,7 +144,7 @@ class ClassRoom{
         return ans;
 
     }
-    
+
     //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
     public static int pairSum(int arr[], int x) {
@@ -138,7 +159,7 @@ class ClassRoom{
         }
         return count;
     }
-    
+
     //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
     public static int tripletSum(int arr[], int target) {
@@ -156,6 +177,6 @@ class ClassRoom{
         }
         return ans;
     }
-    
+
     //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 }
