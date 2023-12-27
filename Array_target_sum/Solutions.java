@@ -1,14 +1,78 @@
+import java.util.Scanner;
 class Solutions {
   public static void main(String[] args) {
-    int arr[] = { 0,1,0,1,0,1,0,1,0,0,0,0};
+    int arr[] = { 2,5,6,1,6};
     // sortZeros(arr);
-    printArrays(arr);
-    System.out.println();
-    sortZerosAnsOnce(arr);
-    printArrays(arr);
+    // printArrays(arr);
+    // System.out.println();
+    // sortZerosAnsOnce(arr);
+    // printArrays(arr);
+    // System.out.println("--------------------------------------------");
+    // System.out.println("RESULT:"+subArraySum(arr));
+    // System.out.println("--------------------------------------------");
+    // printArrays(arr);
+    sumOfRange(arr);
+  
   }
 
+  public static int[] makePrefixArray(int arr[]) {
+    int n = arr.length;
+    for (int i = 1; i < n; i++) {
+      arr[i] = arr[i - 1] + arr[i];//arr[i]+=arr[i-1];
+    }
+    return arr;
+  }
 
+  public static void sumOfRange(int arr[]) {
+
+    Scanner sc = new Scanner(System.in);
+    System.out.println("Enter the Query Range");
+    int q = sc.nextInt();
+    int prefixSum[] = makePrefixArray(arr);
+    while (q-- > 0) {
+      System.out.print("Enter the Value of L:");
+      int l = sc.nextInt();
+      System.out.println("");
+      System.out.print("Enter thr Value of R:");
+      int r = sc.nextInt();
+      if (l > arr.length) {
+        System.out.println("Enter the valid Range");
+        l = sc.nextInt();
+      }
+      if(r>arr.length){
+        System.out.println("Enter the valid range");
+        r = sc.nextInt();
+      }
+      
+
+      int ans = prefixSum[r] - prefixSum[l - 1];
+      System.out.println("Sum is =" + ans);
+    }
+  }
+  
+  public static int totalSum(int arr[]) {
+  int n=arr.length;
+  int total = 0;
+  for (int i = 0; i < n; i++) {
+    total += arr[i];
+  }
+  return total;
+  
+}
+  public static boolean subArraySum(int arr[]) {
+    int n = arr.length;
+    int prefixSum = 0;
+  int total = totalSum(arr);
+  for (int i = 0; i < n; i++) {
+    prefixSum += arr[i];
+    int suffixSum = total - prefixSum;
+    if (suffixSum == prefixSum) {
+      return true;
+    }
+  }
+  return false;
+
+}
   public static void printArrays(int arr[]) {
     int n = arr.length;
     for (int i = 0; i < n; i++) {

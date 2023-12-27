@@ -7,6 +7,7 @@ public class Solution_03 {
     printArrays(ans);
   }
 
+  public static int  
   public static void printArrays(int arr[]) {
     int n = arr.length;
     for (int i = 0; i < n; i++) {
